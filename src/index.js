@@ -2,8 +2,14 @@ import './main.css';
 import { Elm } from './Main.elm';
 import * as serviceWorker from './serviceWorker';
 
-Elm.Main.init({
-  node: document.getElementById('root')
+const state = localStorage.getItem('elm:state') || '{ "favorites": [] }';
+const app = Elm.Main.init({
+  node: document.getElementById('root'),
+  flags: JSON.parse(state)
+});
+
+app.ports.setStorage.subscribe(function (state) {
+  localStorage.setItem('elm:state', JSON.stringify(state));
 });
 
 // If you want your app to work offline and load faster, you can change

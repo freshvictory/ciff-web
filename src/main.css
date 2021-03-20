@@ -48,11 +48,45 @@ li, ul {
   padding: 0;
 }
 
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-a:visited {
-  color: inherit;
+h1 {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+}
+
+html {
+  --c-background: white;
+  --c-background-light: hsl(150, 21.55%, 93.49%);
+  --c-shadow: #333;
+  --c-text: #111;
+  --c-text-light: #444;
+  --c-text-lightest: #999;
+
+  background-color: var(--c-background);
+  color: var(--c-text);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --c-background: black;
+    --c-background-light: hsl(150, 21.55%, 12%);
+    --c-shadow: #111;
+    --c-text: #bbb;
+    --c-text-light: #eee;
+    --c-text-lightest: #888;
+  }
 }
